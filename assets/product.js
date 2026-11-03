@@ -45,7 +45,7 @@
     '<div class="pdp-info">' +
     '<div class="brand-label">' + p.item_brand + '</div>' +
     '<h1>' + NF.esc(p.item_name) + '</h1>' +
-    '<div><span class="stars" aria-hidden="true">' + stars + '</span> <span class="small">' + r.average.toFixed(1) + '</span> · <button class="linkish small" type="button" id="reviews-toggle">Read ' + r.count + ' reviews</button></div>' +
+    '<div><span class="stars" aria-hidden="true">' + stars + '</span> <span class="small">' + r.average.toFixed(1) + ' (' + r.count + ')</span> · <button class="linkish small" type="button" id="reviews-toggle">Read reviews</button></div>' +
     '<div class="pdp-price"><span class="price' + (sale ? ' sale' : '') + '">' + NF.money(p.price) + '</span>' + (sale ? '<span class="was">' + NF.money(NF.wasPrice(p)) + '</span>' : '') + '</div>' +
     '<p>' + NF.esc(DESCRIPTIONS[p.item_id] || '') + '</p>' +
     '<div class="small muted">In stock. Free delivery over $50. Order by 20 December for Christmas delivery.</div>' +
@@ -87,7 +87,7 @@
   document.getElementById('reviews-toggle').onclick = function () {
     const box = document.getElementById('reviews');
     box.hidden = !box.hidden;
-    this.textContent = box.hidden ? 'Read ' + r.count + ' reviews' : 'Hide reviews';
+    this.textContent = box.hidden ? 'Read reviews' : 'Hide reviews';
     if (!box.hidden) {
       NF.track('Product Review Read', { item_id: p.item_id, reviews_read: reviewCopy.length, average_rating: r.average });
     }

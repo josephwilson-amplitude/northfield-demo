@@ -47,7 +47,8 @@
         ? '<label class="option"><input type="radio" name="pay" checked><span class="opt-main"><strong>Saved card ending 4242</strong><br><span class="small muted">Expires 08/29</span></span></label>'
         : '<label class="option"><input type="radio" name="pay" checked><span class="opt-main"><strong>Demo payment</strong><br><span class="small muted">No real payment is taken on this demo site.</span></span></label>') +
       '</div></div>' +
-      '<button class="btn btn-lg btn-block" type="submit" id="place-order">Place order · ' + NF.money(t.cart_total + t.delivery_fee) + '</button>' +
+      '<div class="summary-row summary-total" style="margin-bottom:14px"><span>To pay</span><span>' + NF.money(t.cart_total + t.delivery_fee) + '</span></div>' +
+      '<button class="btn btn-lg btn-block" type="submit" id="place-order">Place order</button>' +
       '</form>' +
       '<aside class="panel"><h2 style="font-size:1.3rem">Your order</h2>' +
       t.products.map(function (l) { return '<div class="mini-line"><span>' + l.quantity + ' × ' + NF.esc(l.item_name) + '</span><span>' + NF.money(l.item_revenue) + '</span></div>'; }).join('') +
