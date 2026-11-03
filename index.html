@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Analytics + Session Replay -->
+<script src="https://cdn.amplitude.com/script/03eb4ab7377111df0f8b2c26bb58d3a5.js"></script>
+
+<!-- Web Experiment: lets the visual editor attach. Keep it even though no experiment
+     is configured yet, it costs nothing and saves a redeploy later -->
+<script src="https://cdn.amplitude.com/script/03eb4ab7377111df0f8b2c26bb58d3a5.experiment.js"></script>
+
+<!-- Guides & Surveys -->
+<script src="https://cdn.amplitude.com/script/03eb4ab7377111df0f8b2c26bb58d3a5.engagement.js"></script>
+<script>
+  if (window.amplitude) {
+    if (window.sessionReplay) amplitude.add(window.sessionReplay.plugin({ sampleRate: 1 }));
+    if (window.engagement)    amplitude.add(window.engagement.plugin());
+    amplitude.init("03eb4ab7377111df0f8b2c26bb58d3a5", { fetchRemoteConfig: true, autocapture: true });
+  }
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northfield &amp; Co — Gifts, home and more</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%231F4D43%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-family=%27Georgia,serif%27 font-size=%2718%27 fill=%27white%27 text-anchor=%27middle%27%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="./assets/app.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+  <section class="hero" data-promo-name="Holiday Sale Hero" data-promo-slot="homepage_hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Holiday Sale</span>
+        <h1>Gifts they'll actually use.</h1>
+        <p class="lead">Up to 25% off headphones, kitchen favourites and cosy knitwear. Free delivery over $50. Order by 20 December for Christmas delivery.</p>
+        <div class="hero-actions">
+          <a class="btn btn-lg" id="hero-cta" href="product.html">Shop the headphones</a>
+          <a class="btn btn-lg btn-ghost" href="category.html?collection=Black%20Friday%20Deals">See all deals</a>
+        </div>
+        <div class="code-strip">This week's codes:
+          <span class="code-chip">HOLIDAY25</span>
+          <span class="code-chip">BLACKFRIDAY</span>
+          <span class="code-chip">GIFT15</span>
+        </div>
+      </div>
+      <a class="hero-feature" id="hero-feature" href="product.html"></a>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="trust">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/></svg>Free delivery over $50</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Order by 20 December for Christmas delivery</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/></svg>Free returns until 31 January</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><h2>Recommended for you</h2></div>
+      <div class="grid grid-4" id="home-recs"></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <a class="promo-tile" id="promo-tile" href="product.html" data-promo-name="Smartwatch Spotlight" data-promo-slot="mid_page">
+        <div class="promo-copy">
+          <span class="small" style="opacity:.8;letter-spacing:.08em;text-transform:uppercase;font-weight:600">Holiday Sale</span>
+          <h2>The Halden Smartwatch Series 3</h2>
+          <p style="opacity:.85">GPS, swim tracking and a week of battery. Now $229, down from $286.</p>
+          <span class="btn">Take a look</span>
+        </div>
+        <div class="ph ph-Electronics" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><rect x="7" y="6.5" width="10" height="11" rx="3"/><path d="M9 6.5 9.5 3h5l.5 3.5M9 17.5l.5 3.5h5l.5-3.5M12 10v2.5l1.5 1"/></svg></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head"><h2>From the Gift Guide</h2><a href="category.html?collection=Gift%20Guide">See the full Gift Guide</a></div>
+      <div class="grid grid-4" id="home-gifts"></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head"><h2>Shop by department</h2></div>
+      <div class="tiles" id="home-tiles"></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head"><h2>Collections</h2></div>
+      <div class="collections">
+        <a class="collection-card" href="category.html?collection=Black%20Friday%20Deals"><h3>Black Friday Deals</h3><p class="muted small">Our biggest savings of the year.</p></a>
+        <a class="collection-card" href="category.html?collection=Gift%20Guide"><h3>Gift Guide</h3><p class="muted small">Ideas for everyone on your list.</p></a>
+        <a class="collection-card" href="category.html?collection=New%20Arrivals"><h3>New Arrivals</h3><p class="muted small">Just landed for winter.</p></a>
+        <a class="collection-card" href="category.html?collection=Core%20Range"><h3>Core Range</h3><p class="muted small">The everyday things we always stock.</p></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="./assets/catalogue.js"></script>
+<script src="./assets/app.js"></script>
+<script src="./assets/home.js"></script>
+</body>
+</html>

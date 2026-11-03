@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Analytics + Session Replay -->
+<script src="https://cdn.amplitude.com/script/03eb4ab7377111df0f8b2c26bb58d3a5.js"></script>
+
+<!-- Web Experiment: lets the visual editor attach. Keep it even though no experiment
+     is configured yet, it costs nothing and saves a redeploy later -->
+<script src="https://cdn.amplitude.com/script/03eb4ab7377111df0f8b2c26bb58d3a5.experiment.js"></script>
+
+<!-- Guides & Surveys -->
+<script src="https://cdn.amplitude.com/script/03eb4ab7377111df0f8b2c26bb58d3a5.engagement.js"></script>
+<script>
+  if (window.amplitude) {
+    if (window.sessionReplay) amplitude.add(window.sessionReplay.plugin({ sampleRate: 1 }));
+    if (window.engagement)    amplitude.add(window.engagement.plugin());
+    amplitude.init("03eb4ab7377111df0f8b2c26bb58d3a5", { fetchRemoteConfig: true, autocapture: true });
+  }
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your account — Northfield &amp; Co</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%231F4D43%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-family=%27Georgia,serif%27 font-size=%2718%27 fill=%27white%27 text-anchor=%27middle%27%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="./assets/app.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<main class="wrap" id="account-main"></main>
+
+<div id="site-footer"></div>
+<script src="./assets/catalogue.js"></script>
+<script src="./assets/app.js"></script>
+<script src="./assets/account.js"></script>
+</body>
+</html>
