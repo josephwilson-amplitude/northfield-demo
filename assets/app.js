@@ -258,7 +258,7 @@
     const badge = sale ? '<span class="badge">Holiday Sale</span>'
       : (p.collection === 'New Arrivals' ? '<span class="badge badge-new">New</span>' : '');
     return '<article class="card">' + badge +
-      '<button class="save-btn" type="button" data-save="' + p.item_id + '" aria-pressed="' + saved + '" aria-label="Save ' + NF.esc(p.item_name) + '">' + HEART + '</button>' +
+      '<button class="save-btn" type="button" data-save="' + p.item_id + '" aria-pressed="' + saved + '" aria-label="Add to wishlist">' + HEART + '</button>' +
       '<a class="card-link" href="' + href + '"' + (opts.module ? ' data-rec-module="' + NF.esc(opts.module) + '"' : '') + '>' +
       NF.art(p.item_category) +
       '<div class="card-body">' +
