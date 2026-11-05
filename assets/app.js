@@ -246,7 +246,14 @@
     return 'product.html?' + qs.toString();
   };
   NF.categoryUrl = function (name) { return 'category.html?category=' + encodeURIComponent(name); };
-  NF.collectionUrl = function (name) { return 'category.html?collection=' + encodeURIComponent(name); };
+  NF.collectionUrl = function (name) { return 'category.html?collection=' + encodeURIComponent(COLLECTION_SLUGS[name] || name); };
+  NF.collectionLabel = function (name) { return COLLECTION_LABELS[name] || name; };
+  // Accepts a slug ("deals") or a full collection name
+  NF.collectionFromParam = function (param) {
+    if (!param) return null;
+    const bySlug = Object.keys(COLLECTION_SLUGS).find(function (k) { return COLLECTION_SLUGS[k] === param.toLowerCase(); });
+    return bySlug || (COLLECTIONS.indexOf(param) >= 0 ? param : null);
+  };
 
   // ---------- Product card ----------
   // opts: { via, pos, q, module } — module marks a recommendation module
@@ -277,7 +284,7 @@
     const navCols = [
       ['Black Friday Deals', 'nav-sale'], ['Gift Guide', ''], ['New Arrivals', '']
     ].map(function (c) {
-      return '<li><a href="' + NF.collectionUrl(c[0]) + '" class="' + c[1] + (active === c[0] ? ' active' : '') + '">' + c[0] + '</a></li>';
+      return '<li><a href="' + NF.collectionUrl(c[0]) + '" class="' + c[1] + (active === c[0] ? ' active' : '') + '">' + NF.collectionLabel(c[0]) + '</a></li>';
     }).join('');
     return '' +
       '<div class="promo-banner" data-promo-name="Holiday Codes Banner" data-promo-slot="sticky_banner">' +
@@ -303,7 +310,7 @@
       '<p style="margin-top:14px;max-width:26em">Good things for home, family and the people you love. Free delivery over $50. Order by 20 December for Christmas delivery.</p>' +
       '<p class="small">Sign up to our emails for early access to the sale.</p></div>' +
       '<div><h4>Shop</h4><ul>' + CATEGORIES.map(function (c) { return '<li><a href="' + NF.categoryUrl(c) + '">' + c + '</a></li>'; }).join('') + '</ul></div>' +
-      '<div><h4>Collections</h4><ul>' + COLLECTIONS.map(function (c) { return '<li><a href="' + NF.collectionUrl(c) + '">' + c + '</a></li>'; }).join('') + '</ul></div>' +
+      '<div><h4>Collections</h4><ul>' + COLLECTIONS.map(function (c) { return '<li><a href="' + NF.collectionUrl(c) + '">' + NF.collectionLabel(c) + '</a></li>'; }).join('') + '</ul></div>' +
       '<div><h4>Help</h4><ul><li><a href="account.html">Your account</a></li><li><a href="cart.html">Basket</a></li><li>Delivery &amp; returns</li><li>Contact us</li></ul></div>' +
       '</div><p class="small" style="margin-top:28px">Northfield &amp; Co is a fictional retailer built for a product analytics demo. No real orders are taken.</p></div></footer>';
   }

@@ -43,6 +43,11 @@ const CATALOGUE = [
 const CATEGORIES = ["Electronics", "Home", "Beauty", "Apparel", "Toys", "Gifting"];
 const COLLECTIONS = ["Black Friday Deals", "Gift Guide", "New Arrivals", "Core Range"];
 
+// What shoppers see, and the URL slug, where it differs from the data value.
+// The data value (above) is what Amplitude receives in collection / category_name.
+const COLLECTION_LABELS = { "Black Friday Deals": "Deals" };
+const COLLECTION_SLUGS = { "Black Friday Deals": "deals" };
+
 // Presenter terms that return results (fire "Search Performed")
 const SEARCH_TERMS = [
   "headphones", "gift for dad", "candle", "pyjamas", "coffee grinder", "smart watch",

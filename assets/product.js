@@ -55,7 +55,7 @@
     '<button class="btn btn-lg btn-ghost" type="button" id="save-btn" aria-pressed="' + saved + '">' + (saved ? 'Saved' : 'Save for later') + '</button>' +
     '</div>' +
     '<div class="added-note" id="added-note" hidden></div>' +
-    '<ul class="facts"><li><span>Brand</span><span>' + p.item_brand + '</span></li><li><span>Department</span><span>' + p.item_category + '</span></li><li><span>Collection</span><span>' + p.collection + '</span></li><li><span>Product code</span><span>' + p.item_id + '</span></li></ul>' +
+    '<ul class="facts"><li><span>Brand</span><span>' + p.item_brand + '</span></li><li><span>Department</span><span>' + p.item_category + '</span></li><li><span>Collection</span><span>' + NF.collectionLabel(p.collection) + '</span></li><li><span>Product code</span><span>' + p.item_id + '</span></li></ul>' +
     '<div class="reviews" id="reviews" hidden><h3>Customer reviews</h3>' +
     reviewCopy.map(function (rv) { return '<div class="review"><span class="stars">★★★★★</span><strong>' + rv[0] + '</strong><span class="small">' + rv[1] + '</span></div>'; }).join('') +
     '</div>' +

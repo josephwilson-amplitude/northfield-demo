@@ -28,7 +28,7 @@
       '<h3>Shop by department</h3><div class="tiles" style="margin-bottom:32px">' +
       CATEGORIES.map(function (c) { return '<a class="tile" href="' + NF.categoryUrl(c) + '">' + NF.art(c) + '<span>' + c + '</span></a>'; }).join('') +
       '</div><h3>Collections</h3><div class="filters">' +
-      COLLECTIONS.map(function (c) { return '<a class="chip" href="' + NF.collectionUrl(c) + '" style="text-decoration:none">' + c + '</a>'; }).join('') +
+      COLLECTIONS.map(function (c) { return '<a class="chip" href="' + NF.collectionUrl(c) + '" style="text-decoration:none">' + NF.collectionLabel(c) + '</a>'; }).join('') +
       '</div><h3 style="margin-top:20px">Popular searches</h3>' + popular;
   }
   NF.observePromos();

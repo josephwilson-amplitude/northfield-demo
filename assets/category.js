@@ -1,8 +1,8 @@
-/* Category and collection landing pages: category.html?category=Home or ?collection=Gift%20Guide */
+/* Category and collection landing pages: category.html?category=Home, ?collection=Gift%20Guide or ?collection=deals */
 (function () {
   const category = NF.param('category');
-  const collection = NF.param('collection');
-  const name = CATEGORIES.indexOf(category) >= 0 ? category : (COLLECTIONS.indexOf(collection) >= 0 ? collection : null);
+  const collection = NF.collectionFromParam(NF.param('collection'));
+  const name = CATEGORIES.indexOf(category) >= 0 ? category : collection;
   NF.boot(name);
 
   const main = document.getElementById('category-main');
@@ -16,18 +16,19 @@
   // Products opened from the Gift Guide count as gift_guide; every other listing is category_browse
   const via = name === 'Gift Guide' ? 'gift_guide' : 'category_browse';
   const intros = {
-    'Black Friday Deals': 'Our biggest savings of the year, while stocks last.',
+    'Black Friday Deals': 'Our best savings, all in one place, while stocks last.',
     'Gift Guide': 'Ideas for everyone on your list, from stocking fillers to the big one.',
     'New Arrivals': 'Just landed for winter.',
     'Core Range': 'The everyday things we always keep in stock.'
   };
-  document.title = name + ' — Northfield & Co';
+  const label = isCollection ? NF.collectionLabel(name) : name;   // what shoppers see; `name` is what Amplitude gets
+  document.title = label + ' — Northfield & Co';
 
   const brands = Array.from(new Set(items.map(function (p) { return p.item_brand; }))).sort();
   const state = { brand: null, saleOnly: false };
 
-  main.innerHTML = '<div class="page-head"><div class="crumbs"><a href="index.html">Home</a> / ' + NF.esc(name) + '</div>' +
-    '<h1>' + NF.esc(name) + '</h1><p class="muted">' + NF.esc(intros[name] || 'Free delivery over $50. Order by 20 December for Christmas delivery.') + '</p></div>' +
+  main.innerHTML = '<div class="page-head"><div class="crumbs"><a href="index.html">Home</a> / ' + NF.esc(label) + '</div>' +
+    '<h1>' + NF.esc(label) + '</h1><p class="muted">' + NF.esc(intros[name] || 'Free delivery over $50. Order by 20 December for Christmas delivery.') + '</p></div>' +
     '<div class="filters" id="filters"></div><p class="small muted" id="count"></p><div class="grid" id="grid"></div>';
 
   function renderFilters() {
