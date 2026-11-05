@@ -281,7 +281,7 @@
     }).join('');
     return '' +
       '<div class="promo-banner" data-promo-name="Holiday Codes Banner" data-promo-slot="sticky_banner">' +
-      'Holiday Sale now on. Use <code>HOLIDAY25</code> for 25% off, or <code>WELCOME10</code> on your first order. ' +
+      'Holiday Sale now on. Up to 25% off gifts for everyone on your list. ' +
       '<a href="' + NF.collectionUrl('Black Friday Deals') + '">Shop the deals</a></div>' +
       '<header class="site-header"><div class="wrap">' +
       '<div class="header-row">' +
@@ -301,7 +301,7 @@
     return '<footer class="site-footer"><div class="wrap"><div class="footer-grid">' +
       '<div><a class="logo" href="index.html"><span class="logo-mark">N</span><span class="logo-word">Northfield &amp; Co</span></a>' +
       '<p style="margin-top:14px;max-width:26em">Good things for home, family and the people you love. Free delivery over $50. Order by 20 December for Christmas delivery.</p>' +
-      '<p class="small">Sign up to our emails for <strong>SAVE20</strong>, and <strong>GIFT15</strong> on gift sets.</p></div>' +
+      '<p class="small">Sign up to our emails for early access to the sale.</p></div>' +
       '<div><h4>Shop</h4><ul>' + CATEGORIES.map(function (c) { return '<li><a href="' + NF.categoryUrl(c) + '">' + c + '</a></li>'; }).join('') + '</ul></div>' +
       '<div><h4>Collections</h4><ul>' + COLLECTIONS.map(function (c) { return '<li><a href="' + NF.collectionUrl(c) + '">' + c + '</a></li>'; }).join('') + '</ul></div>' +
       '<div><h4>Help</h4><ul><li><a href="account.html">Your account</a></li><li><a href="cart.html">Basket</a></li><li>Delivery &amp; returns</li><li>Contact us</li></ul></div>' +
